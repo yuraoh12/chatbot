@@ -1,0 +1,3 @@
+set FLASK_APP=mybot
+set FLASK_DEBUG=True
+set FLASK_RUN_PORT=8099
