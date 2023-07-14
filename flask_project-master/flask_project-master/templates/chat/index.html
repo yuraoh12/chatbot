@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Document</title>
+</head>
+
+<script>
+    function fetchPost(url, data) {
+        return fetch(url, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify(data),
+        })
+            .then(response => response.json())
+    }
+
+    function fetchGet(url, data) {
+        
+        return fetch(url, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            }
+        })
+            .then(response => {
+                console.log(response)
+                response.json()
+            })
+    }
+
+
+    let result = fetchGet("http://127.0.0.1:8099/chat/list", )
+
+    console.log(result)
+
+
+</script>
+<body>
+
+<div id="wrap" class="flex">
+    <div class="left">
+        <ul class="p-list">
+            <li class="flex active">
+                <div class="circle"></div>
+                <div class="user">사용자1</div>
+            </li>
+            <li class="flex">
+                <div class="circle"></div>
+                <div class="user">사용자2</div>
+            </li>
+            <li class="flex">
+                <div class="circle"></div>
+                <div class="user">사용자3</div>
+            </li>
+        </ul>
+        <div class="profile flex">
+            <div class="flex first">
+                <div class="circle"></div>
+                <div class="my-name">
+                    <strong>사용자</strong>
+                    <p>login-ID</p>
+                </div>
+            </div>
+            <div class="icon flex">
+                <div class="icon1"></div>
+                <div class="icon2"></div>
+                <div class="icon3"></div>
+            </div>
+        </div>
+    </div>
+    <div class="right">
+        <ul id="chat" class="chat">
+            {% for message in message_list %}
+            <li class="chat-list1 flex">
+                <div class="pro-img"></div>
+                <div class="pro-text">
+                    <p class="name"> {{message.user.username}} <span>{{message.create_date }}</span></p>
+                    <p class="chatting">
+                        {{ message.content }}
+                    </p>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+        <div class="chat-box">
+            <form action="/chat/list" method="post">
+                {{ form.csrf_token }}
+                <input type="text" name="content">
+                <input type="submit" value="전송">
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    let chatBox = document.getElementById("chat");
+    console.log(chatBox.scrollHeight);
+    chatBox.scrollTop = chatBox.scrollHeight;
+    window.scrollTo(0, document.body.scrollHeight);
+
+</script>
+</html>

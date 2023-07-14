@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Ysabeau+Infant:wght@100&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul, li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.flex {
+    display: flex;
+}
+
+body {
+    color: #fff;
+}
+
+
+
+#wrap {
+    width: 60%;
+    height: 100vh;
+    /* border: 3px solid red; */
+    margin: 0 auto;
+    box-sizing: border-box;
+    background: #3b3b3b;
+}
+
+#wrap>div {
+    /* border: 1px solid #fff; */
+    box-sizing: border-box;
+}
+
+#wrap .left {
+    flex: 1 1 25%;
+    background: #2f2f2f;
+}
+
+#wrap .right {
+    flex: 1 1 75%;
+}
+
+
+#wrap .left {
+    position: relative;
+}
+
+#wrap .left .p-list {
+    padding: 10px;
+}
+
+#wrap .left .p-list li {
+    /* border-bottom: 1px solid #fff; */
+    padding: 5px 10px;
+    align-items: center;
+    gap: 0 15px;
+    border-radius: 10px;
+}
+
+#wrap .left .p-list li.active {
+    background: #6d6d6d;
+}
+
+
+#wrap .left .p-list li .circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: skyblue;
+}
+
+#wrap .left .profile {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: #555;
+    padding: 10px;
+    box-sizing: border-box;
+    gap: 0 20px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#wrap .left .profile .first {
+    gap: 0 10px;
+}
+
+#wrap .left .profile .circle {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: skyblue;
+}
+
+#wrap .left .profile .my-name p {
+    font-size: 12px;
+}
+
+#wrap .left .profile .icon {
+    gap: 0 10px;
+}
+
+#wrap .left .profile .icon>div {
+    width: 20px;
+    height: 20px;
+    background: orange;
+    border-radius: 50%;
+}
+
+
+/* ----------------------------right */
+#wrap .right {
+    padding: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+#wrap .right .chat {
+    overflow-y: scroll;
+    height: calc(100vh - 150px);
+}
+
+#wrap .right .chat li {
+    border-bottom: 1px solid #fff;
+    padding: 15px 0;
+    gap: 0 20px;
+}
+
+#wrap .right .chat li .pro-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: skyblue;
+}
+
+#wrap .right .chat li .name {
+    font-size: 18px;
+}
+
+#wrap .right .chat li .name span {
+    font-size: 12px;
+}
+
+#wrap .right .chat-box {
+    width: 100%;
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+}
+
+#wrap .right .chat-box input[type="text"] {
+    width: calc(100% - 100px);
+    padding: 10px;
+    box-sizing: border-box;
+    background: #747474;
+    outline: none;
+    border: none;
+}
